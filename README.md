@@ -1,1 +1,1 @@
-# ASM1-SDN302
+# SDN302 - Assignment 1 - Node Modules, Express, MongoDB and REST API
