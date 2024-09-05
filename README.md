@@ -7,9 +7,10 @@
 ![GitHub License](https://img.shields.io/github/license/bakaqc/Assignment-1-SDN302)
 
 ### Document
-- Docs: [Click here!!!](Assignment_1_-_Node_Modules,_Express,_MongoDB_and_REST_API.pdf)
+- Docs: [Click here!!!](docs/Assignment_1_-_Node_Modules,_Express,_MongoDB_and_REST_API.pdf)
 
 ### Requirements
 - NodeJS
 - Express
 - MongoDB
+- Typescript
