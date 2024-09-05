@@ -14,3 +14,17 @@
 - Express
 - MongoDB
 - Typescript
+
+## Build
+
+### Install dependencies:
+
+```bash
+pnpm i
+```
+
+### Run:
+
+```bash
+pnpm dev
+```
