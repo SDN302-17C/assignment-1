@@ -2,30 +2,27 @@ import { Request, Response } from 'express';
 import { Quiz } from '../models/Quiz';
 import { Question } from '../models/Question';
 
-// User enter keywords to search for quizzes at getQuizByKeyword
-const keywords = ['React'];
+const keywords = ['HTTP'];
+
+const handleError = (res: Response, error: any) => res.status(500).json({ error: 'Internal Server Error' });
 
 // GET /quizzes
 export const getAllQuizzes = async (req: Request, res: Response): Promise<void> => {
     try {
         const quizzes = await Quiz.find().populate('questions');
         res.json(quizzes);
-    } catch (error: any) {
-        res.status(500).json({ error: 'Internal Server Error' });
+    } catch (error) {
+        handleError(res, error);
     }
 };
 
 // GET /quizzes/:quizId
 export const getQuizById = async (req: Request, res: Response): Promise<void> => {
     try {
-        const quizzes = await Quiz.findById(req.params.quizId).populate('questions');
-        if (!quizzes) {
-            res.status(404).json({ message: 'Quiz not found' });
-            return;
-        }
-        res.json(quizzes);
-    } catch (error: any) {
-        res.status(500).json({ error: 'Internal Server Error' });
+        const quiz = await Quiz.findById(req.params.quizId).populate('questions');
+        quiz ? res.json(quiz) : res.status(404).json({ message: 'Quiz not found' });
+    } catch (error) {
+        handleError(res, error);
     }
 };
 
@@ -35,8 +32,8 @@ export const createQuiz = async (req: Request, res: Response): Promise<void> => 
         const quiz = new Quiz(req.body);
         await quiz.save();
         res.status(201).json(quiz);
-    } catch (error: any) {
-        res.status(500).json({ error: 'Internal Server Error' });
+    } catch (error) {
+        handleError(res, error);
     }
 };
 
@@ -44,37 +41,33 @@ export const createQuiz = async (req: Request, res: Response): Promise<void> => 
 export const updateQuiz = async (req: Request, res: Response): Promise<void> => {
     try {
         const quiz = await Quiz.findByIdAndUpdate(req.params.quizId, req.body, { new: true });
-        if (!quiz) {
-            res.status(404).json({ message: 'Quiz not found' });
-            return;
-        }
-        res.json(quiz);
-    } catch (error: any) {
-        res.status(500).json({ error: 'Internal Server Error' });
+        quiz ? res.json(quiz) : res.status(404).json({ message: 'Quiz not found' });
+    } catch (error) {
+        handleError(res, error);
     }
 };
 
 // DELETE /quizzes/:quizId
 export const deleteQuiz = async (req: Request, res: Response): Promise<void> => {
     try {
-        await Quiz.findByIdAndDelete(req.params.quizId);
+        const quiz = await Quiz.findByIdAndDelete(req.params.quizId);
         res.status(204).send();
-    } catch (error: any) {
-        res.status(500).json({ error: 'Internal Server Error' });
+    } catch (error) {
+        handleError(res, error);
     }
 };
 
 // GET /quizzes/:quizId/populate
 export const getQuizByKeyword = async (req: Request, res: Response): Promise<void> => {
     try {
+        const regex = new RegExp(keywords.join('|'), 'i'); // 'i' for case-insensitive, '|' for OR condition
         const quiz = await Quiz.findById(req.params.quizId).populate({
             path: 'questions',
-            match: { keywords: keywords  } 
+            match: { keywords: { $regex: regex } }
         });
-
         res.json(quiz);
-    } catch (error: any) {
-        res.status(500).json({ error: 'Internal Server Error' });
+    } catch (error) {
+        handleError(res, error);
     }
 };
 
@@ -87,12 +80,12 @@ export const addQuestionToQuiz = async (req: Request, res: Response): Promise<vo
         if (!quiz) {
             res.status(404).json({ message: 'Quiz not found' });
             return;
-        } 
+        }
         quiz.questions.push(question._id);
         await quiz.save();
         res.status(201).json(question);
-    } catch (error: any) {
-        res.status(500).json({ error: 'Internal Server Error' });
+    } catch (error) {
+        handleError(res, error);
     }
 };
 
@@ -105,10 +98,10 @@ export const addQuestionsToQuiz = async (req: Request, res: Response): Promise<v
             res.status(404).json({ message: 'Quiz not found' });
             return;
         }
-        questions.forEach(question => quiz.questions.push(question._id));
+        quiz.questions.push(...questions.map(q => q._id));
         await quiz.save();
         res.status(201).json(questions);
-    } catch (error: any) {
-        res.status(500).json({ error: 'Internal Server Error' });
+    } catch (error) {
+        handleError(res, error);
     }
 };

@@ -1,13 +1,15 @@
 import { Request, Response } from 'express';
 import { Question } from '../models/Question';
 
+const handleError = (res: Response, error: any) => res.status(500).json({ error: 'Internal Server Error' });
+
 // GET /questions
 export const getAllQuestions = async (req: Request, res: Response): Promise<void> => {
     try {
         const questions = await Question.find();
         res.json(questions);
     } catch (error: any) {
-        res.status(500).json({ error: 'Internal Server Error' });
+        handleError(res, error);
     }
 };
 
@@ -18,7 +20,7 @@ export const createQuestion = async (req: Request, res: Response): Promise<void>
         await question.save();
         res.status(201).json(question);
     } catch (error: any) {
-        res.status(500).json({ error: 'Internal Server Error' });
+        handleError(res, error);
     }
 };
 
@@ -26,13 +28,9 @@ export const createQuestion = async (req: Request, res: Response): Promise<void>
 export const updateQuestion = async (req: Request, res: Response): Promise<void> => {
     try {
         const question = await Question.findByIdAndUpdate(req.params.questionId, req.body, { new: true });
-        if (!question) {
-            res.status(404).json({ message: 'Question not found' });
-            return;
-        }
-        res.json(question);
+        question ? res.json(question) : res.status(404).json({ message: 'Question not found' });
     } catch (error: any) {
-        res.status(500).json({ error: 'Internal Server Error' });
+        handleError(res, error);
     }
 };
 
@@ -40,12 +38,8 @@ export const updateQuestion = async (req: Request, res: Response): Promise<void>
 export const deleteQuestion = async (req: Request, res: Response): Promise<void> => {
     try {
         const question = await Question.findByIdAndDelete(req.params.questionId);
-        if (!question) {
-            res.status(404).json({ message: 'Question not found' });
-            return;
-        }
-        res.status(204).send();
+        question ? res.status(204).send() : res.status(404).json({ message: 'Question not found' });
     } catch (error: any) {
-        res.status(500).json({ error: 'Internal Server Error' });
+        handleError(res, error);
     }
 };
