@@ -10,7 +10,7 @@ export const getAllQuizzes = async (req: Request, res: Response): Promise<void> 
     try {
         const quizzes = await Quiz.find().populate('questions');
         res.json(quizzes);
-    } catch (error) {
+    } catch (error: any) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
@@ -24,7 +24,7 @@ export const getQuizById = async (req: Request, res: Response): Promise<void> =>
             return;
         }
         res.json(quizzes);
-    } catch (error) {
+    } catch (error: any) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
@@ -35,7 +35,7 @@ export const createQuiz = async (req: Request, res: Response): Promise<void> => 
         const quiz = new Quiz(req.body);
         await quiz.save();
         res.status(201).json(quiz);
-    } catch (error) {
+    } catch (error: any) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
@@ -49,7 +49,7 @@ export const updateQuiz = async (req: Request, res: Response): Promise<void> => 
             return;
         }
         res.json(quiz);
-    } catch (error) {
+    } catch (error: any) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
@@ -59,7 +59,7 @@ export const deleteQuiz = async (req: Request, res: Response): Promise<void> => 
     try {
         await Quiz.findByIdAndDelete(req.params.quizId);
         res.status(204).send();
-    } catch (error) {
+    } catch (error: any) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
@@ -73,7 +73,7 @@ export const getQuizByKeyword = async (req: Request, res: Response): Promise<voi
         });
 
         res.json(quiz);
-    } catch (error) {
+    } catch (error: any) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
@@ -91,7 +91,7 @@ export const addQuestionToQuiz = async (req: Request, res: Response): Promise<vo
         quiz.questions.push(question._id);
         await quiz.save();
         res.status(201).json(question);
-    } catch (error) {
+    } catch (error: any) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
@@ -108,7 +108,7 @@ export const addQuestionsToQuiz = async (req: Request, res: Response): Promise<v
         questions.forEach(question => quiz.questions.push(question._id));
         await quiz.save();
         res.status(201).json(questions);
-    } catch (error) {
+    } catch (error: any) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };

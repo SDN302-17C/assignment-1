@@ -11,7 +11,7 @@ interface IQuestion extends Document<Types.ObjectId> {
 const QuestionSchema: Schema = new Schema({
     text: { type: String, required: true },
     options: { type: [String], required: true },
-    keywords: { type: [String]},
+    keywords: { type: [String], required: true},
     correctAnswerIndex: { type: Number, required: true }
 });
 

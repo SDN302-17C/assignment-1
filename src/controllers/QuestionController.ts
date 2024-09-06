@@ -6,7 +6,7 @@ export const getAllQuestions = async (req: Request, res: Response): Promise<void
     try {
         const questions = await Question.find();
         res.json(questions);
-    } catch (error) {
+    } catch (error: any) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
@@ -17,7 +17,7 @@ export const createQuestion = async (req: Request, res: Response): Promise<void>
         const question = new Question(req.body);
         await question.save();
         res.status(201).json(question);
-    } catch (error) {
+    } catch (error: any) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
@@ -31,7 +31,7 @@ export const updateQuestion = async (req: Request, res: Response): Promise<void>
             return;
         }
         res.json(question);
-    } catch (error) {
+    } catch (error: any) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
@@ -45,7 +45,7 @@ export const deleteQuestion = async (req: Request, res: Response): Promise<void>
             return;
         }
         res.status(204).send();
-    } catch (error) {
+    } catch (error: any) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
