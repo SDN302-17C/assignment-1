@@ -28,3 +28,9 @@ pnpm i
 ```bash
 pnpm dev
 ```
+
+
+### Contributor
+<a href="https://github.com/SDN302-SE17C/Assignment-1/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=SDN302-SE17C/Assignment-1" />
+</a>
