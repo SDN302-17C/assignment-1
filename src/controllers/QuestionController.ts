@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { Question } from '../models/Question';
-
-const handleError = (res: Response, error: any) => res.status(500).json({ error: 'Internal Server Error' });
+import handleError from '../utils/HandleError';
 
 // GET /questions
 export const getAllQuestions = async (req: Request, res: Response): Promise<void> => {
