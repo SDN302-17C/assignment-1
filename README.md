@@ -11,6 +11,9 @@
 
 ## Build
 
+### Setup database:
+- Data: [Click here!!!](data)
+
 ### Install dependencies:
 
 ```bash
@@ -23,6 +26,8 @@ pnpm i
 pnpm dev
 ```
 
+### Test
+- [Click here!!!](test/TestAPI.md)
 
 ## Contributor
 <a href="https://github.com/SDN302-SE17C/Assignment-1/graphs/contributors">
