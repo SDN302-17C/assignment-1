@@ -5,6 +5,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/bakaqc/Assignment-1-SDN302)
 ![GitHub repo size](https://img.shields.io/github/repo-size/bakaqc/Assignment-1-SDN302)
 ![GitHub License](https://img.shields.io/github/license/bakaqc/Assignment-1-SDN302)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=SDN302-SE17C_Assignment-1&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=SDN302-SE17C_Assignment-1)
 
 ## Document
 - Docs: [Click here!!!](docs/Assignment_1_-_Node_Modules,_Express,_MongoDB_and_REST_API.pdf)
