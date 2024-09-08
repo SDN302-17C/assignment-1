@@ -2,8 +2,6 @@ import { Request, Response } from 'express';
 import { Quiz } from '../models/Quiz';
 import { Question } from '../models/Question';
 
-const keywords = ['HTTP'];
-
 const handleError = (res: Response, error: any) => res.status(500).json({ error: 'Internal Server Error' });
 
 // GET /quizzes
@@ -60,7 +58,8 @@ export const deleteQuiz = async (req: Request, res: Response): Promise<void> => 
 // GET /quizzes/:quizId/populate
 export const getQuizByKeyword = async (req: Request, res: Response): Promise<void> => {
     try {
-        const regex = new RegExp(keywords.join('|'), 'i'); // 'i' for case-insensitive, '|' for OR condition
+        const keywords = ['capital'];
+        const regex = new RegExp(keywords.join('|'), 'i');
         const quiz = await Quiz.findById(req.params.quizId).populate({
             path: 'questions',
             match: { keywords: { $regex: regex } }
