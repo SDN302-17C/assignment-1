@@ -14,22 +14,32 @@
 ## Test URL
 
 ### Questions 
-- Get All Questions ![GET](https://img.shields.io/badge/-GET-blue?style=flat-square&logo=add&logoColor=white)
+![GET](https://img.shields.io/badge/-GET-blue?style=flat-square&logo=add&logoColor=white)
+- Get All Questions 
 ```bash
 http://localhost:3000/questions/
 ```
 
-- Create Question ![POST](https://img.shields.io/badge/-POST-green?style=flat-square&logo=search&logoColor=white)
+<br>
+
+![POST](https://img.shields.io/badge/-POST-green?style=flat-square&logo=search&logoColor=white)
+- Create Question 
 ```bash
 http://localhost:3000/questions/
 ```
 
-- Update Question ![PUT](https://img.shields.io/badge/-PUT-yellow?style=flat-square&logo=edit&logoColor=white)
+<br>
+
+![PUT](https://img.shields.io/badge/-PUT-yellow?style=flat-square&logo=edit&logoColor=white)
+- Update Question 
 ```bash
 http://localhost:3000/questions/questionId
 ```
 
-- Delete Question ![DELETE](https://img.shields.io/badge/-DELETE-red?style=flat-square&logo=trash&logoColor=white)
+<br>
+
+![DELETE](https://img.shields.io/badge/-DELETE-red?style=flat-square&logo=trash&logoColor=white)
+- Delete Question 
 ```bash
 http://localhost:3000/questions/questionId
 ```
@@ -37,42 +47,62 @@ http://localhost:3000/questions/questionId
 <br>
 
 ### Quizzes 
-- Get All Quizzes ![GET](https://img.shields.io/badge/-GET-blue?style=flat-square&logo=add&logoColor=white)
+![GET](https://img.shields.io/badge/-GET-blue?style=flat-square&logo=add&logoColor=white)
+- Get All Quizzes 
 ```bash
 http://localhost:3000/quizzes/
 ```
 
-- Get Quiz by ID ![GET](https://img.shields.io/badge/-GET-blue?style=flat-square&logo=add&logoColor=white)
+<br>
+
+- Get Quiz by ID 
 ```bash
 http://localhost:3000/quizzes/quizId
 ```
 
-- Create Quizzes ![POST](https://img.shields.io/badge/-POST-green?style=flat-square&logo=search&logoColor=white)
-```bash
-http://localhost:3000/quizzes/
-```
+<br>
 
-- Update Quizzes ![PUT](https://img.shields.io/badge/-PUT-yellow?style=flat-square&logo=edit&logoColor=white)
-```bash
-http://localhost:3000/quizzes/quizId
-```
-
-- Delete Quizzes ![DELETE](https://img.shields.io/badge/-DELETE-red?style=flat-square&logo=trash&logoColor=white)
-```bash
-http://localhost:3000/quizzes/quizId
-```
-
-- Get all questions in quizId have keyword ![GET](https://img.shields.io/badge/-GET-blue?style=flat-square&logo=add&logoColor=white)
+- Get all questions in quizId have keyword 
 ```bash
 http://localhost:3000/quizzes/quizId/populate
 ```
 
-- Create new question in quizId ![POST](https://img.shields.io/badge/-POST-green?style=flat-square&logo=search&logoColor=white)
+<br>
+
+![POST](https://img.shields.io/badge/-POST-green?style=flat-square&logo=search&logoColor=white)
+- Create Quizzes 
+```bash
+http://localhost:3000/quizzes/
+```
+
+<br>
+
+- Create new question in quizId 
 ```bash
 http://localhost:3000/quizzes/quizId/question
 ```
 
-- Create many new questions in quizId ![POST](https://img.shields.io/badge/-POST-green?style=flat-square&logo=search&logoColor=white)
+<br>
+
+- Create many new questions in quizId 
 ```bash
 http://localhost:3000/quizzes/quizId/questions
 ```
+
+<br>
+
+![PUT](https://img.shields.io/badge/-PUT-yellow?style=flat-square&logo=edit&logoColor=white)
+- Update Quizzes 
+```bash
+http://localhost:3000/quizzes/quizId
+```
+
+<br>
+
+![DELETE](https://img.shields.io/badge/-DELETE-red?style=flat-square&logo=trash&logoColor=white)
+- Delete Quizzes 
+```bash
+http://localhost:3000/quizzes/quizId
+```
+
+
