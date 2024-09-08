@@ -6,8 +6,10 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/bakaqc/Assignment-1-SDN302)
 ![GitHub License](https://img.shields.io/github/license/bakaqc/Assignment-1-SDN302)
 
-## Document:
+## Document
 - Docs: [Click here!!!](docs/Assignment_1_-_Node_Modules,_Express,_MongoDB_and_REST_API.pdf)
+  
+<br>
 
 ## Build
 
@@ -26,8 +28,10 @@ pnpm i
 pnpm dev
 ```
 
-### Test
+### Test:
 - [Click here!!!](test/TestAPI.md)
+
+<br>
 
 ## Contributor
 <a href="https://github.com/SDN302-SE17C/Assignment-1/graphs/contributors">
