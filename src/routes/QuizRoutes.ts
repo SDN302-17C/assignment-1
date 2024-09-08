@@ -12,13 +12,13 @@ import {
 
 const router = express.Router();
 
-router.get('/quizzes', getAllQuizzes);
-router.get('/quizzes/:quizId', getQuizById);
-router.post('/quizzes', createQuiz);
-router.put('/quizzes/:quizId', updateQuiz);
-router.delete('/quizzes/:quizId', deleteQuiz);
-router.get('/quizzes/:quizId/populate', getQuizByKeyword);
-router.post('/quizzes/:quizId/question', addQuestionToQuiz);
-router.post('/quizzes/:quizId/questions', addQuestionsToQuiz);
+router.get('/', getAllQuizzes);
+router.get('/:quizId', getQuizById);
+router.post('/', createQuiz);
+router.put('/:quizId', updateQuiz);
+router.delete('/:quizId', deleteQuiz);
+router.get('/:quizId/populate', getQuizByKeyword);
+router.post('/:quizId/question', addQuestionToQuiz);
+router.post('/:quizId/questions', addQuestionsToQuiz);
 
 export default router;

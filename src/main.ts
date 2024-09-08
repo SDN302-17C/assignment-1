@@ -13,8 +13,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(morgan('dev'));
 
-app.use('/api', quizRoutes);
-app.use('/api', questionRoutes);
+app.use('/quizzes', quizRoutes);
+app.use('/questions', questionRoutes);
 
 connectDB().then(() => {
     app.listen(PORT, () => {
