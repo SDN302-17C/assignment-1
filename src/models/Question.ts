@@ -1,6 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
-import { Types } from 'mongoose';
-
+import mongoose, { Schema, Document, Types } from 'mongoose';
 interface IQuestion extends Document<Types.ObjectId> {
     text: string;
     options: string[];
