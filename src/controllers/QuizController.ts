@@ -47,7 +47,7 @@ export const updateQuiz = async (req: Request, res: Response): Promise<void> => 
 // DELETE /quizzes/:quizId
 export const deleteQuiz = async (req: Request, res: Response): Promise<void> => {
     try {
-        const quiz = await Quiz.findByIdAndDelete(req.params.quizId);
+        await Quiz.findByIdAndDelete(req.params.quizId);
         res.status(204).send();
     } catch (error) {
         handleError(res, error);
