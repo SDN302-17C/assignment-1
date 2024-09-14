@@ -8,7 +8,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=SDN302-SE17C_Assignment-1&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=SDN302-SE17C_Assignment-1)
 
 ## Document
-- Docs: [Click here!!!](docs/Assignment_1_-_Node_Modules,_Express,_MongoDB_and_REST_API.pdf)
+- Docs: [Click here!!!](docs/Assignment%201.pdf)
   
 <br>
 
