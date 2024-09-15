@@ -12,6 +12,16 @@ export const getAllQuestions = async (req: Request, res: Response): Promise<void
     }
 };
 
+// GET /questions
+export const getQuestionByID = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const questions = await Question.findById(req.params.questionId);
+        res.json(questions);
+    } catch (error: any) {
+        handleError(res, error);
+    }
+};
+
 // POST /questions
 export const createQuestion = async (req: Request, res: Response): Promise<void> => {
     try {
