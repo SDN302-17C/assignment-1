@@ -12,8 +12,8 @@ app.disable("x-powered-by");
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.use("/quizzes", quizRoutes);
-app.use("/questions", questionRoutes);
+app.use("/api/quizzes", quizRoutes);
+app.use("/api/questions", questionRoutes);
 
 connectDB().then(() => {
   app.listen(server.port, () => {
