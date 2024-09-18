@@ -15,8 +15,8 @@ export const getAllQuestions = async (req: Request, res: Response): Promise<void
 // GET /questions
 export const getQuestionByID = async (req: Request, res: Response): Promise<void> => {
     try {
-        const questions = await Question.findById(req.params['questionId']);
-        res.json(questions);
+        const question = await Question.findById(req.params['questionId']);
+        question ? res.json(question) : res.status(404).json({ message: 'Quiz not found' });
     } catch (error: any) {
         handleError(res, error);
     }
