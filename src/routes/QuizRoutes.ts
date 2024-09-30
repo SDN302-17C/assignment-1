@@ -17,7 +17,7 @@ router.get('/:quizId', getQuizById);
 router.post('/', createQuiz);
 router.put('/:quizId', updateQuiz);
 router.delete('/:quizId', deleteQuiz);
-router.get('/:quizId/populate', getQuizByKeyword);
+router.get('/:quizId/populate/:keyword', getQuizByKeyword);
 router.post('/:quizId/question', addQuestionToQuiz);
 router.post('/:quizId/questions', addQuestionsToQuiz);
 
